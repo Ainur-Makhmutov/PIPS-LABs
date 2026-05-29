@@ -10,7 +10,7 @@ from catboost import CatBoostRegressor, Pool
 # 1. ЗАГРУЗКА ДАННЫХ
 # -------------------------------
 
-FILE_PATH = "Data/Dataset-24.csv"  # ваш файл
+FILE_PATH = "Data/Dataset-24.csv"
 
 print("Загрузка CSV...")
 df = pd.read_csv(FILE_PATH)
@@ -22,7 +22,6 @@ print(f"Столбцы: {df.columns.tolist()}")
 # -------------------------------
 
 def parse_usage_json(val):
-    """Парсинг JSON-строк типа {'cpus': 0.00839, 'memory': 0.00947}"""
     if pd.isna(val):
         return 0.0, 0.0
     if isinstance(val, str):
@@ -183,9 +182,6 @@ r2 = r2_score(y_test, y_pred)
 print(f"\n=== Результаты ===")
 print(f"Время обучения: {train_time:.2f} сек")
 print(f"Время прогноза на 1 объект: {pred_time_ms:.4f} мс")
-print(f"MAE: {mae:.6f}")
-print(f"RMSE: {rmse:.6f}")
-print(f"R2: {r2:.4f}")
 
 # -------------------------------
 # 10. ВАЖНОСТЬ ПРИЗНАКОВ
